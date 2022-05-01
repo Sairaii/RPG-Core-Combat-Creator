@@ -33,9 +33,20 @@ namespace RPG.Attributes
 
             if (healthPoints == 0)
             {
+                print(gameObject.name + " took damage: " + damage);
                 Die();
                 AwardExperience(instigator);
             }
+        }
+
+        public float GetHealthPoints()
+        {
+            return healthPoints;
+        }
+
+        public float GetMaxHealth()
+        {
+            return GetComponent<BaseStats>().GetStat(Stat.Health);
         }
 
         public float GetPercentage()

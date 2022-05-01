@@ -23,7 +23,7 @@ namespace RPG.Combat
                 return;
             }
             Health health = fighter.GetTarget();
-            GetComponent<Text>().text = health.GetPercentage().ToString("F1"); //'0' next to F indicates that how many decimals we want to be shown on the output
+            GetComponent<Text>().text = health.GetHealthPoints().ToString("F0") + " / " + health.GetMaxHealth().ToString("F0"); //'0' next to F indicates that how many decimals we want to be shown on the output
         }
     }
 }
