@@ -1,44 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!136 &2186757723382032124
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5039056439794381990}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &6586908971558756486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5039056439794381990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6235f33f01d37c7489c6371ff52c390c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &872284791991874238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5039056439794381990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd7fdf2379ea91543b268a27afda6f5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  experiencePoints: 0
 --- !u!1001 &551918964355187731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49,6 +10,10 @@ PrefabInstance:
     - target: {fileID: 874692424, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
       propertyPath: m_Speed
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 874692424, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
+      propertyPath: m_Radius
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 874692424, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
       propertyPath: m_Enabled
@@ -161,6 +126,45 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4775676519821865141, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
   m_PrefabInstance: {fileID: 551918964355187731}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &2186757723382032124
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5039056439794381990}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &872284791991874238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5039056439794381990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd7fdf2379ea91543b268a27afda6f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experiencePoints: 0
+--- !u!114 &6586908971558756486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5039056439794381990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6235f33f01d37c7489c6371ff52c390c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5216282211041120536 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5749753495049393419, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
