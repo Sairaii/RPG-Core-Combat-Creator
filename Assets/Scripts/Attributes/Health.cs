@@ -28,12 +28,11 @@ namespace RPG.Attributes
   
         public void TakeDamage(GameObject instigator, float damage)
         {
+            print(gameObject.name + " took damage: " + damage);
             healthPoints = Mathf.Max(healthPoints - damage, 0);
-            print(gameObject.name + "'s health = " + healthPoints);
 
             if (healthPoints == 0)
             {
-                print(gameObject.name + " took damage: " + damage);
                 Die();
                 AwardExperience(instigator);
             }
