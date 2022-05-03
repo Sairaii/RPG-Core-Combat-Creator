@@ -34,12 +34,10 @@ namespace  RPG.Control
             health = GetComponent<Health>();
             mover = GetComponent<Mover>();
             player = GameObject.FindWithTag("Player");
-
-            guardPosition = transform.position;
         }
         void Start()
         {
-
+            guardPosition = transform.position;
         }
 
         // Update is called once per frame

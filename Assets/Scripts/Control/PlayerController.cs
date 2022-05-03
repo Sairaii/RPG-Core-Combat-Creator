@@ -12,10 +12,7 @@ namespace RPG.Control
         {
             health = GetComponent<Health>();
         }
-        void Start() 
-        {
-            
-        }
+        
         void Update()
         {
             if (health.IsDead())

@@ -9,12 +9,7 @@ namespace RPG.Cinematics
     {
         [SerializeField] CinemachineVirtualCamera followCamera;
         [SerializeField] float zoomSpeed = 30f;
-
-        void Start()
-        {
-
-        }
-
+        
         void Update()
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0f)
