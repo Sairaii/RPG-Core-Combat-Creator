@@ -42,8 +42,7 @@ namespace RPG.Control
                 SetCursor(CursorType.None);
                 return;
             }
-            //if we attack then just attack not move or vice versa
-            if (InteractWithCombat()) return; //I continue, skips over the rest of this body and exit the update
+            if (InteractWithComponent()) return;
             if (InteractWithMovement()) return;
 
             SetCursor(CursorType.None);
@@ -59,32 +58,26 @@ namespace RPG.Control
             return false;
         }
 
-        bool InteractWithCombat()
+
+        private bool InteractWithComponent()
         {
-            RaycastHit[] Hits = Physics.RaycastAll(GetMouseRay()); //raycastall is to find an object that might be obscured by another
+            RaycastHit[] Hits = Physics.RaycastAll(GetMouseRay());
             foreach (RaycastHit hit in Hits)
             {
-                CombatTarget target = hit.transform.GetComponent<CombatTarget>();
-                if (target == null)
+                IRaycastable[] raycastables = hit.transform.GetComponents<IRaycastable>();
+                foreach (IRaycastable raycastable in raycastables)
                 {
-                    continue;
+                    if (raycastable.HandleRaycast(this))
+                    {
+                        SetCursor(CursorType.Combat);
+                        return true;
+                    }
                 }
-                if (!GetComponent<Fighter>().CanAttack(target.gameObject))
-                {
-                    continue; //continue is used when we know the current element in the foreach loop isn't what we're looking for, so we want to move on to the next element.  It just says "Next, please".
-                }
-
-                if (Input.GetMouseButton(0))
-                {
-                    GetComponent<Fighter>().Attack(target.gameObject);
-                }
-                SetCursor(CursorType.Combat);
-                return true;
             }
             return false;
         }
 
-        bool InteractWithMovement()
+        private bool InteractWithMovement()
         {
             RaycastHit hit;
             bool hasHit = Physics.Raycast(GetMouseRay(), out hit); //Raycast is a bool type. out is used to store hit variable information into Raycast (allows us to return information about the location that a raycast has hit)
