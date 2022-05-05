@@ -173,6 +173,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6235f33f01d37c7489c6371ff52c390c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorMappings:
+  - type: 0
+    texture: {fileID: 2800000, guid: 21628736160fcc9488493401da3ef621, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 1
+    texture: {fileID: 2800000, guid: 1e1ecf843f705b34ab304dff88b037c1, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 2
+    texture: {fileID: 2800000, guid: 2d18e23e3ce249b4489b8bcdd02d3f48, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 3
+    texture: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
+    hotspot: {x: 0, y: 0}
 --- !u!4 &5216282211041120536 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5749753495049393419, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}

@@ -23,6 +23,11 @@ namespace RPG.Stats
             return experiencePoints;
         }
 
+        public float GetMaxExperience()
+        {
+            return GetComponent<BaseStats>().GetStat(Stat.ExperienceToLevelUp);
+        }
+
         public object CaptureState()
         {
             return experiencePoints;
