@@ -3,6 +3,7 @@ using RPG.Attributes;
 using RPG.Combat;
 using RPG.Movement;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
 namespace RPG.Control
@@ -20,6 +21,7 @@ namespace RPG.Control
         }
 
         [SerializeField] CursorMapping[] cursorMappings = null;
+        [SerializeField] float maxNavMeshProjectionDistance = 1f;
 
         void Awake() 
         {
@@ -49,7 +51,6 @@ namespace RPG.Control
             }
             return false;
         }
-
 
         private bool InteractWithComponent()
         {
@@ -83,18 +84,34 @@ namespace RPG.Control
 
         private bool InteractWithMovement()
         {
-            RaycastHit hit;
-            bool hasHit = Physics.Raycast(GetMouseRay(), out hit); //Raycast is a bool type. out is used to store hit variable information into Raycast (allows us to return information about the location that a raycast has hit)
+            Vector3 target;
+            bool hasHit  = RaycastNavMesh(out target);
             if (hasHit)
             {
                 if (Input.GetMouseButton(0))
                 {
-                    GetComponent<Mover>().StartMoveAction(hit.point);
+                    GetComponent<Mover>().StartMoveAction(target, 1f);
                 }
                 SetCursor(CursorType.Movement);
                 return true;
             }
             return false;
+        }
+
+        private bool RaycastNavMesh(out Vector3 target)
+        {
+            target = new Vector3();
+
+            RaycastHit hit;
+            bool hasHit = Physics.Raycast(GetMouseRay(), out hit); //Raycast is a bool type. out is used to store hit variable information into Raycast (allows us to return information about the location that a raycast has hit)
+            if (!hasHit) return false;
+
+            NavMeshHit navMeshHit;
+            bool hasCastToNavMesh = NavMesh.SamplePosition(hit.point, out navMeshHit, maxNavMeshProjectionDistance, NavMesh.AllAreas);
+            if (!hasCastToNavMesh) return false;
+
+            target = navMeshHit.position;
+            return true;
         }
 
         void SetCursor(CursorType type)
