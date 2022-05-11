@@ -36,28 +36,29 @@ namespace RPG.SceneManagement
             DontDestroyOnLoad(gameObject);
 
             Fader fader = FindObjectOfType<Fader>();
+            SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
+            PlayerController playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>(); //doesn't work in awake/update, to freeze the character when fade out in is in progress
+            playerController.enabled = false;
 
             yield return fader.FadeOut(fadeOutTime);
-
-            SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
-            wrapper.Save();
+ 
+            savingWrapper.Save();
 
             yield return SceneManager.LoadSceneAsync(sceneToLoad.name);
+            PlayerController newPlayerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>(); //doesn't work in awake/update, to freeze the character when fade out in is in progress
+            newPlayerController.enabled = false;
 
-            GameObject player = GameObject.FindWithTag("Player"); //doesn't work in awake/update, to freeze the character when fade out in is in progress
-            player.GetComponent<PlayerController>().enabled = false;
-
-            wrapper.Load();
+            savingWrapper.Load();
 
             Portal otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
 
-            wrapper.Save();
+            savingWrapper.Save();
 
             yield return new WaitForSeconds(fadeWaitTime);
-            yield return fader.FadeIn(fadeInTime);
-            
-            player.GetComponent<PlayerController>().enabled = true;
+            fader.FadeIn(fadeInTime);
+
+            newPlayerController.enabled = true;
             
             Destroy(gameObject);
         }

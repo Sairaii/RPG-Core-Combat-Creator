@@ -9,9 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8231362924013058677}
-  - component: {fileID: 312597560576845209}
   - component: {fileID: 1698025687328960877}
-  - component: {fileID: 823509323620578713}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -40,21 +38,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &312597560576845209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8231362924013058678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
 --- !u!114 &1698025687328960877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,25 +51,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   persistentObjectPrefab: {fileID: 5962418305727965270, guid: 4e583200fe53a154fb4815ec2ce06342, type: 3}
---- !u!114 &823509323620578713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8231362924013058678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!1001 &1139078863439976146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -378,7 +342,7 @@ PrefabInstance:
       objectReference: {fileID: 3621591765620390895}
     - target: {fileID: 4449713569577031113, guid: 2520142f3ebfcee42bdbebc3f04dc9e6, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7464435
+      value: 1.7096235
       objectReference: {fileID: 0}
     - target: {fileID: 4449713569577031114, guid: 2520142f3ebfcee42bdbebc3f04dc9e6, type: 3}
       propertyPath: m_Name
