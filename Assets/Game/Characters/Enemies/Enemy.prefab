@@ -85,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6761185947185775849, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7881086550005510771, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
       propertyPath: health
@@ -94,6 +94,34 @@ PrefabInstance:
     - target: {fileID: 7881086550005510771, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
       propertyPath: healthPoints
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881086550005510771, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881086550005510771, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881086550005510771, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1259836971718756522}
+    - target: {fileID: 7881086550005510771, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881086550005510771, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Agrrevated
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881086550005510771, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: RPG.Control.AIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881086550005510771, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
@@ -130,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseDistance: 8
   suspicionTime: 5
+  aggroCooldownTime: 5
   patrolPath: {fileID: 0}
   waypointTolerance: 1.8
   waypointDwellTime: 3
