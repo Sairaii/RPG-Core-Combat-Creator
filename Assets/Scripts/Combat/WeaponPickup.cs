@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using RPG.Attributes;
 using RPG.Control;
+using RPG.Movement;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -54,7 +55,9 @@ namespace RPG.Combat
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Pickup(callingController.gameObject);
+                //Pickup(callingController.gameObject); // int the lecture 157, this makes pick the weaponpickup object automatically no matter what distance the player is
+                callingController.gameObject.GetComponent<Mover>().StartMoveAction(transform.position, 1f); 
+                //see [Tip] If you want the weapon pick ups to work as before but still have the dedicated cursor question for above solution
             }
             return true;
         }

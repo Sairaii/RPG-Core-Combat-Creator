@@ -18,8 +18,7 @@ namespace  RPG.Control
         [SerializeField] float waypointDwellTime = 3f;
         [Range(0,5)]
         [SerializeField] float patrolSpeedFraction = 3.75f;
-        [Range(0, 5)]
-        [SerializeField] float attackSpeedFraction = 4.5f;
+        [SerializeField] float shoutDistance = 5f;
 
         Fighter fighter;
         Health health;
@@ -63,6 +62,7 @@ namespace  RPG.Control
             {
                 Attackbehaviour();
             }
+            
             else if (timeSinceLastSawPlayer < suspicionTime)
             {
                 SuspicionBehaviour();
@@ -75,7 +75,7 @@ namespace  RPG.Control
             UpdateTimers();
         }
 
-        public void Agrrevated()
+        public void Aggravate()
         {
             timeSinceAggrevated = 0;
         }
@@ -96,7 +96,6 @@ namespace  RPG.Control
                 if (AtWayPoint())
                 {
                     timeSinceArrivedAtWaypoint = 0;
-                    mover.SetSpeed(patrolSpeedFraction);
                     CycleWayPoint();
                 }
                 nextPosition = GetCurrentWayPoint();
@@ -132,8 +131,36 @@ namespace  RPG.Control
         void Attackbehaviour()
         {
             timeSinceLastSawPlayer = 0;
-            mover.SetSpeed(attackSpeedFraction);
             fighter.Attack(player);
+
+            //AggravateNearbyEnemies(); // in lecture 186, this causes infinite aggro bug
+            if (IsWithinChaseRange()) // see [Solution] Infinite Aggro Bug question
+            {
+                AggravateAndShout();
+            }
+        }
+
+        public void AggravateAndShout()
+        {
+            Aggravate();
+            AggravateNearbyEnemies();
+        }
+
+        bool IsWithinChaseRange()
+        {
+            return Vector3.Distance(this.transform.position, player.transform.position) <= chaseDistance;
+        }
+
+        void AggravateNearbyEnemies()
+        {
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, shoutDistance, Vector3.up, 0);
+            foreach (RaycastHit hit in hits)
+            {
+                AIController ai = hit.collider.GetComponent<AIController>();
+                if (ai == null) continue;
+
+                ai.Aggravate();
+            }
         }
 
         bool IsAggrevated()

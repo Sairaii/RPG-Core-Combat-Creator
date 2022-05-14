@@ -67,11 +67,6 @@ namespace RPG.Movement
             // GetComponent<Animator>().SetFloat("forwardSpeed", speed);
         }
 
-        public void SetSpeed(float speed)
-        {
-            playerNavMeshAgent.speed = speed;
-        }
-
         private float GetPathLength(NavMeshPath path)
         {
             float total = 0;

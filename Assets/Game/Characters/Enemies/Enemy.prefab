@@ -113,7 +113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7881086550005510771, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: Agrrevated
+      value: AggravateAndShout
       objectReference: {fileID: 0}
     - target: {fileID: 7881086550005510771, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -122,6 +122,10 @@ PrefabInstance:
     - target: {fileID: 7881086550005510771, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770744104041804257, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
+      propertyPath: maxSpeed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 580ad643e0ffb8845b9581340a7900d7, type: 3}
@@ -163,7 +167,7 @@ MonoBehaviour:
   waypointTolerance: 1.8
   waypointDwellTime: 3
   patrolSpeedFraction: 3.75
-  attackSpeedFraction: 4.5
+  shoutDistance: 5
 --- !u!114 &7962803817725103210
 MonoBehaviour:
   m_ObjectHideFlags: 0
